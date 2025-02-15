@@ -61,7 +61,7 @@ const Login = () => {
       <main>
         <h1 className="heading">Login</h1>
 
-        <div>
+        {/* <div>
           <label>Gender</label>
           <select value={gender} onChange={(e) => setGender(e.target.value)}>
             <option value="">Select Gender</option>
@@ -77,10 +77,10 @@ const Login = () => {
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
-        </div>
+        </div> */}
 
         <div>
-          <p>Already Signed In Once</p>
+          {/* <p>Already Signed In Once</p> */}
           <button onClick={loginHandler}>
             <FcGoogle /> <span>Sign in with Google</span>
           </button>
