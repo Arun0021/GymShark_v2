@@ -11,8 +11,8 @@ import { useDispatch } from "react-redux";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const [gender, setGender] = useState("");
-  const [date, setDate] = useState("");
+  // const [gender, setGender] = useState("");
+  // const [date, setDate] = useState("");
 
   const [login] = useLoginMutation();
 
@@ -21,23 +21,23 @@ const Login = () => {
       const provider = new GoogleAuthProvider();
       const { user } = await signInWithPopup(auth, provider);
 
-      console.log({
-        name: user.displayName!,
-        email: user.email!,
-        photo: user.photoURL!,
-        gender,
-        role: "user",
-        dob: date,
-        _id: user.uid,
-      });
+      // console.log({
+      //   name: user.displayName!,
+      //   email: user.email!,
+      //   photo: user.photoURL!,
+      //   // gender,
+      //   role: "user",
+      //   // dob: date,
+      //   _id: user.uid,
+      // });
 
       const res = await login({
         name: user.displayName!,
         email: user.email!,
         photo: user.photoURL!,
-        gender,
+        gender:"male",
         role: "user",
-        dob: date,
+        dob: "",
         _id: user.uid,
       });
 
@@ -61,7 +61,7 @@ const Login = () => {
       <main>
         <h1 className="heading">Login</h1>
 
-        {/* <div>
+         {/* <div>
           <label>Gender</label>
           <select value={gender} onChange={(e) => setGender(e.target.value)}>
             <option value="">Select Gender</option>
@@ -77,10 +77,10 @@ const Login = () => {
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
-        </div> */}
+        </div>  */}
 
         <div>
-          {/* <p>Already Signed In Once</p> */}
+           {/* <p>Already Signed In Once</p>  */}
           <button onClick={loginHandler}>
             <FcGoogle /> <span>Sign in with Google</span>
           </button>
